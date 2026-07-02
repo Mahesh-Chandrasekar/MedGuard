@@ -26,7 +26,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-print("🚀 Booting up MedGuard Streamlined API...")
+print("[*] Booting up MedGuard Streamlined API...")
 model = joblib.load('models/xgb_medguard_model.pkl')
 encoder = joblib.load('models/label_encoder.pkl')
 

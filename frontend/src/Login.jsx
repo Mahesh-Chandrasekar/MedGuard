@@ -19,10 +19,10 @@ export default function Login() {
     const endpoint = isRegistering ? 'http://127.0.0.1:8000/register' : 'http://127.0.0.1:8000/login';
 
     try {
-      const response = await axios.post(endpoint, {
-        username: username,
-        password: password
-      });
+      const payload = { username, password };
+      if (isRegistering) payload.hospital_name = 'General Hospital';
+
+      const response = await axios.post(endpoint, payload);
 
       if (response.data.status === 'success') {
         if (isRegistering) {
